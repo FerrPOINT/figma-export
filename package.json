@@ -1,0 +1,37 @@
+{
+  "name": "cursor-talk-to-figma-mcp",
+  "description": "Cursor Talk to Figma MCP",
+  "version": "0.3.1",
+  "module": "dist/figma-export-server.js",
+  "main": "dist/figma-export-server.js",
+  "bin": {
+    "figma-export-server": "dist/figma-export-server.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "type": "module",
+  "scripts": {
+    "start": "bun run dist/figma-export-server.js",
+    "dev": "bun run src/figma-export-server.ts",
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "extract-images": "bun run scripts/extractImages.ts",
+    "reorganize": "bun run scripts/reorganize-export.ts",
+    "reorganize:test": "node test-reorganization-simple.cjs",
+    "reorganize:full": "node run-reorganization.cjs",
+    "analyze:sizes": "node test-reorganization-simple.cjs"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bun-types": "^1.2.5",
+    "tsup": "^8.4.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "uuid": "latest",
+    "ws": "^8.18.3",
+    "zod": "3.22.4"
+  }
+}
